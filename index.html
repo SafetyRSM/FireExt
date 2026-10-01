@@ -2,14 +2,24 @@
 <html>
 
 <head>
-<title>FireExt</title>
+  <title>FireExt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base target="_top">
   <link rel="shortcut icon" href="https://lh5.googleusercontent.com/d/1zgU8PfCxhqvFTN11two0viJ_b5ykaF1G">
 </head>
 
 <body>
-  <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;border: 0;"
-src="https://script.google.com/macros/s/AKfycbxzdXjOUGSf2Ay-DE8Uhbc2RJJOsEmbXGqereUs24lY8-p_mZyv0PZruM2eC8lovDo/exec"></iframe>
-   </body>
+  <iframe id="appFrame"
+    style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;border: 0;"
+    allow="camera; microphone; geolocation"
+    src=""></iframe>
+
+  <script>
+    var gasUrl = "https://script.google.com/macros/s/AKfycbxzdXjOUGSf2Ay-DE8Uhbc2RJJOsEmbXGqereUs24lY8-p_mZyv0PZruM2eC8lovDo/exec";
+    
+    // ดึงพารามิเตอร์ทั้งหมดต่อท้ายลิงก์ (เช่น ?fire=1&area=RMK) ส่งต่อไปยัง iframe ของ Apps Script ทันที
+    var queryParams = window.location.search || '';
+    document.getElementById("appFrame").src = gasUrl + queryParams;
+  </script>
+</body>
 </html>
